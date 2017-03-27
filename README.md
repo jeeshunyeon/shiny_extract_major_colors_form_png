@@ -1,0 +1,1 @@
+# shiny_extract_major_colors_form_png
