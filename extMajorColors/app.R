@@ -11,6 +11,7 @@ library(shiny)
 library(png)
 library(RCurl)
 library(imager)
+library(markdown)
 
 color_extractor = function(rgb_data, colors = 3){
   kmeans_result = kmeans(x = rgb_data, centers = colors)
@@ -44,7 +45,8 @@ ui <- fluidPage(
         
         tabsetPanel(type = "tabs", 
                     tabPanel("Url 입력", 
-                             includeText("최적화가 되지 않아 아직 많이 느립니다. 인내심을 가지고 기다리시면 처리 됩니다. png, jpg 등 이미지라면 동작하는 것을 확인했습니다만, 문제가 있으면 [여기](https://github.com/mrchypark/shiny_extract_major_colors_form_png/issues)에 남겨주세요. 감사합니다."),
+                             br(),
+                             includeMarkdown("info.md"),
                              br(),textInput("url",
                                        "색상을 추출하고자 하는 사진의 url을 입력해주세요. :",
                                        value = "https://gephi.org/images/screenshots/layout2.png"
