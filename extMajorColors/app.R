@@ -92,7 +92,7 @@ server <- function(input, output ) {
   
   observeEvent(input$url, {
     v$data <- input$url
-    if(grepl("^htt",input$url)){v$data <- paste0("http://",v$data)}
+    if(!grepl("^htt",input$url)){v$data <- paste0("http://",v$data)}
   })
   
   observeEvent(input$file, {
