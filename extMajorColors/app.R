@@ -104,13 +104,14 @@ server <- function(input, output ) {
   })
   
   output$result <- renderDataTable({
-    if (v$data=="") return()
+    print(v$data)
+    if (v$data=="http://") return()
     png = imager::load.image(v$data)
     color_extractor(png=png, colors = input$N)[["colors"]][-1]
     })
   
   output$plot <- renderPlot({
-    if (v$data=="") return()
+    if (v$data=="http://") return()
     png = imager::load.image(v$data)
     pngf = imrotate(png,270)
     
